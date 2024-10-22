@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Lista de Tarefass</h1>
+    <ul>
+        {% for item in todo_items %}
+            <li>
+                {{ item.title }} - {% if item.completed %} Completo {% else %} Incompleto {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
