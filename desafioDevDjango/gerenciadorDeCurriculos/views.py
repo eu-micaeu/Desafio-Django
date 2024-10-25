@@ -29,3 +29,10 @@ class FormacaoAcademicaViewSet(viewsets.ModelViewSet):
     """
     queryset = FormacaoAcademica.objects.all()
     serializer_class = FormacaoAcademicaSerializer
+
+# Páginas de visualização
+
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'gerenciadorDeCurriculos/index.html')

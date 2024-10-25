@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from gerenciadorDeCurriculos.views import index  # Certifique-se de importar a view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('gerenciadorDeCurriculos.urls')),
+    path('', index, name='index'),  # Rota raiz
 ]
