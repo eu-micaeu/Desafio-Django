@@ -96,9 +96,9 @@ document.getElementById("btEnter").addEventListener("click", function(){
 
             empresa: empresa.value,
 
-            data_inicio: dataDeInicioCurso.value,
+            data_inicio: dataDeInicio.value,
 
-            data_fim: dataDeTerminoCurso.value,
+            data_fim: dataDeTermino.value,
 
             descricao: descricao.value
 
@@ -152,6 +152,24 @@ document.getElementById("btEnter").addEventListener("click", function(){
         console.log('Success:', data);
         
     });
+
+    alert('Currículo cadastrado com sucesso!');
+
+    nome.value = '';
+    sobrenome.value = '';
+    dataDeNascimento.value = '';
+    email.value = '';
+    telefone.value = '';
+    endereco.value = '';
+    cargo.value = '';
+    empresa.value = '';
+    dataDeInicio.value = '';
+    dataDeTermino.value = '';
+    descricao.value = '';
+    instituicao.value = '';
+    curso.value = '';
+    dataDeInicioCurso.value = '';
+    dataDeTerminoCurso.value = '';
 
 });
 
