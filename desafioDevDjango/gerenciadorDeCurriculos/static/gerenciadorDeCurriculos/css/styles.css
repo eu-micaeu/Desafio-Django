@@ -39,6 +39,12 @@ form{
 
 }
 
+form h2{
+
+    width: 100%;
+
+}
+
 form .box{
 
     display: flex;
