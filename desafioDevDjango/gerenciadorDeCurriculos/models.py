@@ -19,10 +19,9 @@ class Contato(models.Model):
         validators=[RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Digite um número de telefone válido.")]
     )
     endereco = models.CharField(max_length=255)
-    dados_pessoais = models.OneToOneField(DadosPessoais, on_delete=models.CASCADE, related_name='contato')
 
     def __str__(self):
-        return f"Contato de {self.dados_pessoais.nome}"
+        return f"{self.email} - {self.telefone}"
 
 class ExperienciaProfissional(models.Model):
     # Experiência profissional
@@ -31,7 +30,6 @@ class ExperienciaProfissional(models.Model):
     data_inicio = models.DateField()
     data_fim = models.DateField(null=True, blank=True)
     descricao = models.TextField()
-    dados_pessoais = models.ForeignKey(DadosPessoais, on_delete=models.CASCADE, related_name='experiencias')
 
     def __str__(self):
         return f"{self.cargo} na {self.empresa}"
@@ -42,7 +40,6 @@ class FormacaoAcademica(models.Model):
     curso = models.CharField(max_length=100)
     data_inicio = models.DateField()
     data_fim = models.DateField(null=True, blank=True)
-    dados_pessoais = models.ForeignKey(DadosPessoais, on_delete=models.CASCADE, related_name='formacao')
 
     def __str__(self):
         return f"{self.curso} - {self.instituicao}"

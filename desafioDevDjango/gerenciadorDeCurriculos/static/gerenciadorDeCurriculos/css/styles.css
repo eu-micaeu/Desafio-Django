@@ -1,4 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
+
 body {
+
     background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+header {
+
+    background-color: #13a30e;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+
+}
+
+main{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+
+}
+
+form{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
+
+form .box{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+
+form .box label{
+
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    width: 100%;
+
+}
+
+form .box input{
+
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+form .box textarea{
+
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+form #btEnter{
+
+    background-color: #13a30e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 50px;
+    width: 100%;
+    border: 2px solid #13a30e;
+
+
+}
+
+form #btEnter:hover{
+
+    background-color: #fff;
+    color: #13a30e;
+    border: 2px solid #13a30e;
+
+
 }
