@@ -89,10 +89,9 @@ form #btEnter{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     width: 100%;
     border: 2px solid #13a30e;
-
 
 }
 
@@ -102,5 +101,49 @@ form #btEnter:hover{
     color: #13a30e;
     border: 2px solid #13a30e;
 
+}
+
+form #btClear{
+
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 2px solid #ff0000;
+
+}
+
+form #btClear:hover{
+
+    background-color: #ffffff;
+    color: #ff0000;
+
+}
+
+footer{
+
+    background-color: #13a30e;
+    color: #fff;
+    padding: 25px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: 50px;
+
+}
+
+footer p{
+
+    margin: 0;
+
+}
+
+footer p a{
+
+    color: #fff;
+    text-decoration: none;
 
 }
