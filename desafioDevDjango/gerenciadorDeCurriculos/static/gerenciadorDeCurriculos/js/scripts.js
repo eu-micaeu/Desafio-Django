@@ -1,72 +1,89 @@
-const csrftoken = document.querySelector('[name=csrf-token]').content;
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('curriculoForm');
+    const btEnter = document.getElementById('btEnter');
+    const btClear = document.getElementById('btClear');
+    
+    btEnter.addEventListener('click', function(event) {
+        event.preventDefault();
+        if (validateForm()) {
+            submitForm();
+        }
+    });
 
-const clearFields = () => {
-    const fields = [
-        'nome', 'sobrenome', 'dataDeNascimento', 'email', 'telefone', 'endereco',
-        'cargo', 'empresa', 'dataDeInicio', 'dataDeTermino', 'descricao',
-        'instituicao', 'curso', 'dataDeInicioCurso', 'dataDeTerminoCurso'
-    ];
-    fields.forEach(fieldId => document.getElementById(fieldId).value = '');
-};
+    btClear.addEventListener('click', function() {
+        clearForm();
+    });
 
-const validateFields = (data) => {
-    return Object.values(data).every(value => value.trim() !== '');
-};
+    // Função de validação
+    function validateForm() {
+        let isValid = true;
+        const requiredFields = document.querySelectorAll('input[required], textarea[required]');
+        requiredFields.forEach(field => {
+            if (!field.value.trim()) {
+                field.classList.add('invalid');
+                isValid = false;
+            } else {
+                field.classList.remove('invalid');
+            }
+        });
 
-const postData = (url, data) => {
-    if (validateFields(data)) {
-        return fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrftoken
-            },
-            body: JSON.stringify(data)
-        }).then(response => response.json());
-    } else {
-        console.error('Todos os campos devem estar preenchidos');
-        return Promise.reject('Campos em branco');
+        if (!isValid) {
+            displayMessage('Preencha todos os campos obrigatórios!', 'error');
+        }
+        return isValid;
     }
-};
 
-document.getElementById("btEnter").addEventListener("click", () => {
-    const dataPessoais = {
-        nome: document.getElementById('nome').value,
-        sobrenome: document.getElementById('sobrenome').value,
-        data_de_nascimento: document.getElementById('dataDeNascimento').value
-    };
+    function submitForm() {
+        const formData = new FormData(form);
 
-    const contato = {
-        email: document.getElementById('email').value,
-        telefone: document.getElementById('telefone').value,
-        endereco: document.getElementById('endereco').value
-    };
+        fetch('/cadastrar_curriculo/', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-CSRFToken': getCSRFToken()
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Erro ao enviar formulário');
+            }
+        })
+        .then(data => {
+            displayMessage('Formulário enviado com sucesso!', 'success');
+            form.reset();
+        })
+        .catch(error => {
+            displayMessage('Erro: ' + error.message, 'error');
+        });
+    }
 
-    const experienciaProfissional = {
-        cargo: document.getElementById('cargo').value,
-        empresa: document.getElementById('empresa').value,
-        data_inicio: document.getElementById('dataDeInicio').value,
-        data_fim: document.getElementById('dataDeTermino').value,
-        descricao: document.getElementById('descricao').value
-    };
+    function clearForm() {
+        form.reset();
+        displayMessage('Formulário limpo!', 'info');
+    }
 
-    const formacaoAcademica = {
-        instituicao: document.getElementById('instituicao').value,
-        curso: document.getElementById('curso').value,
-        data_inicio: document.getElementById('dataDeInicioCurso').value,
-        data_fim: document.getElementById('dataDeTerminoCurso').value
-    };
+    function displayMessage(message, type) {
+        const messageBox = document.getElementById('messageBox');
+        messageBox.textContent = message;
+        messageBox.className = type;
+        messageBox.style.display = 'block';
 
-    Promise.all([
-        postData('http://127.0.0.1:8000/api/dados-pessoais/', dataPessoais),
-        postData('http://127.0.0.1:8000/api/contato/', contato),
-        postData('http://127.0.0.1:8000/api/experiencia-profissional/', experienciaProfissional),
-        postData('http://127.0.0.1:8000/api/formacao-academica/', formacaoAcademica)
-    ]).then(responses => {
-        console.log('Success:', responses);
-        alert('Currículo cadastrado com sucesso!');
-        clearFields();
-    }).catch(error => console.error('Error:', error));
+        setTimeout(() => {
+            messageBox.style.display = 'none';
+        }, 3000);
+    }
+
+    function getCSRFToken() {
+        let csrfToken = null;
+        const cookies = document.cookie.split(';');
+        cookies.forEach(cookie => {
+            const [name, value] = cookie.trim().split('=');
+            if (name === 'csrftoken') {
+                csrfToken = value;
+            }
+        });
+        return csrfToken;
+    }
 });
-
-document.getElementById("btClear").addEventListener("click", clearFields);

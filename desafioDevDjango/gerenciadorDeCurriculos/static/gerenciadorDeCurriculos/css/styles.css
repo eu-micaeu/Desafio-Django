@@ -1,149 +1,114 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap');
 
 body {
-
-    background-color: #f4f4f4;
+    background-color: #e0f7fa;
     font-family: 'Raleway', sans-serif;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
+    padding: 0px;
 }
 
 header {
-
-    background-color: #13a30e;
+    background-color: #00695c;
     color: #fff;
-    padding: 10px 0;
+    padding: 15px 0;
     text-align: center;
     width: 100%;
-
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-main{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 80%;
-
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
 }
 
-form{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-
-}
-
-form h2{
-
-    width: 100%;
-
-}
-
-form .box{
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
-
-}
-
-form .box label{
-
-    font-size: 1.2em;
-    margin-bottom: 10px;
-    width: 100%;
-
-}
-
-form .box input{
-
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-
-}
-
-form .box textarea{
-
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-
-}
-
-form #btEnter{
-
-    background-color: #13a30e;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    width: 100%;
-    border: 2px solid #13a30e;
-
-}
-
-form #btEnter:hover{
-
-    background-color: #fff;
-    color: #13a30e;
-    border: 2px solid #13a30e;
-
-}
-
-form #btClear{
-
-    background-color: #ff0000;
-    color: #ffffff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    width: 100%;
-    border: 2px solid #ff0000;
-
-}
-
-form #btClear:hover{
-
+main {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
     background-color: #ffffff;
-    color: #ff0000;
-
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-footer{
-
-    background-color: #13a30e;
-    color: #fff;
-    padding: 25px 0;
-    text-align: center;
+form {
     width: 100%;
-    margin-top: 50px;
-
 }
 
-footer p{
-
-    margin: 0;
-
+form h2 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #00695c;
 }
 
-footer p a{
+.box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
 
-    color: #fff;
-    text-decoration: none;
+label {
+    font-size: 1.2em;
+    color: #004d40;
+    margin-bottom: 8px;
+}
 
+input, textarea {
+    width: 100%;
+    padding: 10px 2px;
+    border: 2px solid #80cbc4;
+    border-radius: 5px;
+    background-color: #f0f4c3;
+}
+
+input:focus, textarea:focus {
+    border-color: #004d40;
+    outline: none;
+    background-color: #ffffff;
+}
+
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#btEnter {
+    background-color: #004d40;
+    color: #ffffff;
+    border: 2px solid #004d40;
+}
+
+#btEnter:hover {
+    background-color: #ffffff;
+    color: #004d40;
+    border: 2px solid #004d40;
+}
+
+#btClear {
+    background-color: #d32f2f;
+    color: #ffffff;
+    border: 2px solid #d32f2f;
+}
+
+#btClear:hover {
+    background-color: #ffffff;
+    color: #d32f2f;
+    border: 2px solid #d32f2f;
+}
+
+footer {
+    background-color: #00695c;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: underline;
 }
