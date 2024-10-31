@@ -9,7 +9,7 @@
 Na pasta raiz, execute os seguintes comandos ( Nessa ordem ) :
 
 ```
-cd desafioDevDjqango
+cd desafioDevDjango
 ```
 
 ```
@@ -21,7 +21,7 @@ python manage.py runserver
 Na pasta raiz, execute os seguintes comandos ( Nessa ordem ) :
 
 ```
-cd desafioDevDjqango
+cd desafioDevDjango
 ```
 
 ```
