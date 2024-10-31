@@ -6,6 +6,12 @@
 
 ## Como rodar?
 
+Instale os requerimentos:
+
+```
+pip install -r requirements.txt
+```
+
 Na pasta raiz, execute os seguintes comandos ( Nessa ordem ) :
 
 ```
