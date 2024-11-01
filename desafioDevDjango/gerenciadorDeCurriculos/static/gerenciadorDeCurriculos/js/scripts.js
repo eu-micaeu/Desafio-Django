@@ -102,7 +102,7 @@ document.getElementById("btEnter").addEventListener("click", () => {
             clearFields();
         }).catch(error => console.error('Error:', error));
     } else {
-        alert('Por favor, preencha todos os campos wobrigatórios.');
+        alert('Por favor, preencha todos os campos obrigatórios.');
     }
 });
 
